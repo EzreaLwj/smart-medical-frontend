@@ -1,4 +1,5 @@
 import { AvatarDropdown, AvatarName, Footer, Question } from '@/components';
+import { authHeaderInterceptor } from '@/interceptor';
 import { loginStateUsingGet } from '@/services/swagger/UserApi';
 import { LinkOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
