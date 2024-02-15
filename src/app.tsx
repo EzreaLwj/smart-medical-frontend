@@ -136,4 +136,5 @@ export const request = {
   baseURL: 'http://localhost:8080/api/',
   withCredentials: true,
   ...errorConfig,
+  requestInterceptors: [authHeaderInterceptor],
 };
