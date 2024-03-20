@@ -17,12 +17,12 @@ export async function addUserAccountUsingPost(
   });
 }
 
-/** 增加医生账号 POST /manager/addUserAccount */
-export async function addUserAccountUsingPost1(
+/** 增加医生账号 POST /manager/addDoctorAccount */
+export async function addDoctorAccountUsingPost(
   body: API.AddDoctorInfoRequest,
   options?: { [key: string]: any },
 ) {
-  return request<API.ResponseAddAccountResponse>('/manager/addUserAccount', {
+  return request<API.ResponseAddAccountResponse>('/manager/addDoctorAccount', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

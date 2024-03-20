@@ -65,13 +65,28 @@ export async function queryPatientInfoUsingGet(
   });
 }
 
-/** 预约医生 GET /patient/reserveDoctor */
-export async function reserveDoctorUsingGet(
-  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.reserveDoctorUsingGETParams,
+/** 预约医生 POST /patient/reserveDoctor */
+export async function reserveDoctorUsingPost(
+  body: API.ReserveDoctorRequest,
   options?: { [key: string]: any },
 ) {
   return request<API.Responsestring>('/patient/reserveDoctor', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 查询预约医生 GET /patient/查询预约医生列表 */
+export async function queryReserveDoctorListUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.queryReserveDoctorListUsingGETParams,
+  options?: { [key: string]: any },
+) {
+  return request<API.ResponseReserveDoctorList>('/patient/查询预约医生列表', {
     method: 'GET',
     params: {
       ...params,

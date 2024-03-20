@@ -36,10 +36,15 @@ declare namespace API {
     userId: number;
   };
 
+  type DepartmentLabelEntity = {
+    departmentId?: string;
+    departmentName?: string;
+  };
+
   type DoctorEntity = {
     departmentName?: string;
     description?: string;
-    gender?: number;
+    gender?: string;
     name?: string;
     phone?: string;
     position?: string;
@@ -106,6 +111,10 @@ declare namespace API {
     weight?: number;
   };
 
+  type QueryDepartmentResponse = {
+    departmentLabelEntityList?: DepartmentLabelEntity[];
+  };
+
   type queryDoctorListUsingGETParams = {
     pageNo?: number;
     pageSize?: number;
@@ -126,10 +135,41 @@ declare namespace API {
   };
 
   type queryPatientInfoUsingGETParams = {
-    departmentId?: number;
+    departmentName?: string;
     name?: string;
     pageNo: number;
     pageSize: number;
+  };
+
+  type ReserveDoctorRequest = {
+    beginTime?: string;
+    doctorId?: number;
+    endTime?: string;
+    patientId?: number;
+    reservation?: string;
+  };
+
+  type queryReserveDoctorListUsingGETParams = {
+    pageNo: number;
+    pageSize: number;
+    type?: number;
+    userId?: number;
+  };
+
+  type ReserveDoctorEntity = {
+    department?: string;
+    description?: string;
+    gender?: string;
+    name?: string;
+    phone?: string;
+    position?: string;
+    reserved?: boolean;
+    userId?: number;
+  };
+
+  type ReserveDoctorList = {
+    reserveDoctorEntityList?: ReserveDoctorEntity[];
+    total?: number;
   };
 
   type reserveDoctorUsingGETParams = {
@@ -164,6 +204,12 @@ declare namespace API {
     info?: string;
   };
 
+  type ResponseQueryDepartmentResponse = {
+    code?: string;
+    data?: QueryDepartmentResponse;
+    info?: string;
+  };
+
   type ResponseQueryDoctorResponse = {
     code?: string;
     data?: QueryDoctorResponse;
@@ -173,6 +219,12 @@ declare namespace API {
   type ResponseQueryHealthMonitorRecordResponse = {
     code?: string;
     data?: QueryHealthMonitorRecordResponse;
+    info?: string;
+  };
+
+  type ResponseReserveDoctorList = {
+    code?: string;
+    data?: ReserveDoctorList;
     info?: string;
   };
 

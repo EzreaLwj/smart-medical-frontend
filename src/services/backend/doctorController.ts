@@ -16,3 +16,11 @@ export async function queryDoctorListUsingGet(
     ...(options || {}),
   });
 }
+
+/** 查询科室信息 GET /doctor/department */
+export async function queryDepartmentsUsingGet(options?: { [key: string]: any }) {
+  return request<API.ResponseQueryDepartmentResponse>('/doctor/department', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}

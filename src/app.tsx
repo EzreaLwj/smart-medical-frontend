@@ -1,4 +1,4 @@
-import { AvatarDropdown, AvatarName, Footer, Question } from '@/components';
+import { AvatarDropdown, AvatarName, Question } from '@/components';
 import { authHeaderInterceptor } from '@/interceptor';
 import { loginStateUsingGet } from '@/services/backend/userController';
 import { LinkOutlined } from '@ant-design/icons';
@@ -63,7 +63,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     waterMarkProps: {
       content: initialState?.currentUser?.userId,
     },
-    footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
