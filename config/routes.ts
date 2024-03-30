@@ -8,6 +8,7 @@ export default [
     path: '/patient',
     icon: 'dashboard',
     name: '患者信息管理',
+    access: 'canPatient',
     routes: [
       { path: '/patient', redirect: '/patient/info' },
       {
@@ -34,6 +35,7 @@ export default [
     icon: 'user',
     path: '/doctor',
     name: '医生管理页',
+    access: 'canDoctor',
     routes: [
       { path: '/doctor', redirect: '/doctor/patientlist' },
       {
@@ -48,6 +50,7 @@ export default [
     icon: 'user',
     path: '/manager',
     name: '管理员',
+    access: 'canAdmin',
     routes: [
       { path: '/manager', redirect: '/manager/addUserInfo' },
       {
@@ -58,21 +61,21 @@ export default [
       },
     ],
   },
-  {
-    icon: 'user',
-    path: '/account',
-    name: '个人页',
-    routes: [
-      { path: '/account', redirect: '/account/center' },
-      { icon: 'smile', path: '/account/center', component: './account/center', name: '个人中心' },
-      {
-        icon: 'smile',
-        path: '/account/settings',
-        component: './account/settings',
-        name: '个人设置',
-      },
-    ],
-  },
+  // {
+  //   icon: 'user',
+  //   path: '/account',
+  //   name: '个人页',
+  //   routes: [
+  //     { path: '/account', redirect: '/account/center' },
+  //     { icon: 'smile', path: '/account/center', component: './account/center', name: '个人中心' },
+  //     {
+  //       icon: 'smile',
+  //       path: '/account/settings',
+  //       component: './account/settings',
+  //       name: '个人设置',
+  //     },
+  //   ],
+  // },
   { path: '/', redirect: '/patient' },
   { path: '*', layout: false, component: './exception/404' },
 ];
