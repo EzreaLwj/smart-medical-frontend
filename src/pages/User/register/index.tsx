@@ -1,4 +1,3 @@
-import { userRegisterUsingPost } from '@/services/swagger/UserApi';
 import { history, Link, useRequest } from '@umijs/max';
 import { Button, Card, Form, Input, message, Popover, Progress, Select, Space } from 'antd';
 import type { Store } from 'antd/es/form/interface';

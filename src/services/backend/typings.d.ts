@@ -75,6 +75,7 @@ declare namespace API {
     bloodOxygen?: string;
     pulse?: string;
     temperature?: string;
+    time?: string;
     weight?: string;
   };
 
@@ -125,11 +126,6 @@ declare namespace API {
     total?: number;
   };
 
-  type QueryHealthMonitorRecordResponse = {
-    days?: number;
-    patientHeathMonitorEntities?: PatientHeathMonitorEntity[];
-  };
-
   type queryHealthMonitorRecordUsingGETParams = {
     userId: number;
   };
@@ -154,6 +150,12 @@ declare namespace API {
     pageSize: number;
     type?: number;
     userId?: number;
+  };
+
+  type ResponseQueryHealthMonitorRecordResponse = {
+    code?: string;
+    data?: QueryHealthMonitorRecordResponse;
+    info?: string;
   };
 
   type ReserveDoctorEntity = {
@@ -216,12 +218,6 @@ declare namespace API {
     info?: string;
   };
 
-  type ResponseQueryHealthMonitorRecordResponse = {
-    code?: string;
-    data?: QueryHealthMonitorRecordResponse;
-    info?: string;
-  };
-
   type ResponseReserveDoctorList = {
     code?: string;
     data?: ReserveDoctorList;
@@ -232,5 +228,33 @@ declare namespace API {
     code?: string;
     data?: string;
     info?: string;
+  };
+
+  type MonitorData = {
+    series?: Series;
+    xAxis?: XAxis;
+    yAxis?: YAxis;
+  };
+
+  type QueryHealthMonitorRecordResponse = {
+    days?: number;
+    oxygenData?: MonitorData;
+    pulseData?: MonitorData;
+    temperature?: MonitorData;
+    weightData?: MonitorData;
+  };
+  type Series = {
+    data?: number[];
+    name?: string;
+    type?: string;
+  };
+
+  type XAxis = {
+    data?: string[];
+    type?: string;
+  };
+
+  type YAxis = {
+    type?: string;
   };
 }
