@@ -30,6 +30,7 @@ const Analysis: FC = () => {
   const [oxygenData, setOxygenData] = useState<API.MonitorData>();
   const [pulseData, setPulseData] = useState<API.MonitorData>();
   const [temperature, setTemperatureData] = useState<API.MonitorData>();
+  const [bmi, setBmi] = useState<number>(0);
 
   useEffect(() => {
     getMonitorData();
@@ -44,6 +45,7 @@ const Analysis: FC = () => {
     setOxygenData(r.data?.oxygenData);
     setPulseData(r.data?.pulseData);
     setTemperatureData(r.data?.temperature);
+    setBmi(r.data?.bmi);
     setState(true);
   };
 
@@ -51,6 +53,7 @@ const Analysis: FC = () => {
     <>
       {state ? (
         <div>
+          <Card>BMI（身体健康指数）：{bmi}</Card>
           <Row gutter={[8, 18]}>
             <Col span={12}>
               <Card title={'体重'}>

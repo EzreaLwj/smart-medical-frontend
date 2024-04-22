@@ -29,6 +29,12 @@ export default [
         component: './patient/monitor',
         name: '监控页',
       },
+      {
+        icon: 'smile',
+        path: '/patient/me',
+        component: './patient/me',
+        name: '个人信息页',
+      },
     ],
   },
   {

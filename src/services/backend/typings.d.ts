@@ -146,6 +146,8 @@ declare namespace API {
   };
 
   type queryReserveDoctorListUsingGETParams = {
+    department?: string;
+    name?: string;
     pageNo: number;
     pageSize: number;
     type?: number;
@@ -242,6 +244,7 @@ declare namespace API {
     pulseData?: MonitorData;
     temperature?: MonitorData;
     weightData?: MonitorData;
+    bmi?: number;
   };
   type Series = {
     data?: number[];
@@ -256,5 +259,16 @@ declare namespace API {
 
   type YAxis = {
     type?: string;
+  };
+
+  type ResponsePatientQueryInfoEntity = {
+    code?: string;
+    data?: PatientQueryInfoEntity;
+    info?: string;
+  };
+
+  type queryPatientDetailInfoUsingGETParams = {
+    type?: number;
+    userId?: number;
   };
 }

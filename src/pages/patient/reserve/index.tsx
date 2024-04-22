@@ -119,7 +119,6 @@ const TableList: React.FC = () => {
       title: '医生姓名',
       dataIndex: 'name',
       valueType: 'textarea',
-      hideInSearch: true,
     },
     {
       title: '性别',
@@ -137,7 +136,6 @@ const TableList: React.FC = () => {
       title: '科室',
       dataIndex: 'department',
       valueType: 'textarea',
-      hideInSearch: true,
     },
     {
       title: '简介',
@@ -206,6 +204,8 @@ const TableList: React.FC = () => {
             pageSize: params.pageSize,
             userId: initialState?.currentUser?.userId,
             type: initialState?.currentUser?.type,
+            department: params.department,
+            name: params.name,
           });
 
           return {

@@ -94,3 +94,18 @@ export async function queryReserveDoctorListUsingGet(
     ...(options || {}),
   });
 }
+
+/** 查询患者信息 GET /patient/queryPatientDetailInfo */
+export async function queryPatientDetailInfoUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.queryPatientDetailInfoUsingGETParams,
+  options?: { [key: string]: any },
+) {
+  return request<API.ResponsePatientQueryInfoEntity>('/patient/queryPatientDetailInfo', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
